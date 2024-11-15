@@ -1,0 +1,80 @@
+<p-card header="Crear Clientes" [style]="{ width: '100%' }">
+  <ng-template pTemplate="header">
+
+  </ng-template>
+  <div>
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+
+
+      <div class="grid">
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input class="w-12 border-solid border-1 border-gray-300" type="text" pInputText formControlName="nombre" placeholder="nombre" title="nombre">
+          </div>
+        </div>
+
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1 ">
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <input class="w-12 border-solid border-1 border-gray-300" type="text" pInputText formControlName="direccion" placeholder="direccion"
+              title="direccion">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid">
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+            <input class="w-12 border-solid border-1 border-gray-300" type="text" pInputText formControlName="telefono" placeholder="telefono"
+              title="telefono">
+          </div>
+        </div>
+
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1 ">
+            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+            <input class="w-12 border-solid border-1 border-gray-300" type="email" pInputText formControlName="email" placeholder="email" title="email">
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="grid">
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1 ">
+            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+            <input class="w-12 border-solid border-1 border-gray-300" type="password" pInputText
+              formControlName="password" placeholder="password" title="password">
+          </div>
+        </div>
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-cog"></i></span>
+            <p-dropdown [options]="rols" formControlName="role" placeholder="Select role" optionLabel="label"
+              optionValue="value"
+              class="border-noround-left border-round-right border-1 border-gray-300 border-solid  text-sm placeholder-gray-400"
+              dropdownIcon="pi pi-chevron-down">
+            </p-dropdown>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="flex justify-content-center flex-wrap">
+        <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4" type="submit"></button>
+
+        <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4" type="button"
+          (click)="cancel()"></button>
+      </div>
+
+
+    </form>
+
+  </div>
+  <ng-template pTemplate="footer">
+
+  </ng-template>
+</p-card>

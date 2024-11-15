@@ -1,0 +1,62 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap">
+        <h3 class="ml-4">Registro de Pinturas</h3>
+        <div class="mt-2 mr-2">
+          <a 
+            pButton 
+            pRipple
+            label="Crear Pintura" 
+            icon="pi pi-palette"
+            class="bg-cyan-600"
+            [routerLink]="['/admin/dashboard/create-pintura']">
+          </a>
+        </div>
+      </div>
+    </ng-template>
+    <p>
+      <p-table [value]="pinturas">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>imagen</th>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Fecha Agregado</th>
+            <th class="flex justify-content-center flex-wrap">Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pintura>
+          <tr>
+            <td><div class="flex justify-content-center w-4rem border-circle overflow-hidden"><img [src]="pintura.imagen" class="w-4rem"></div></td>
+            <td>{{ pintura.nombre }}</td>
+            <td>{{ pintura.categoria }}</td>
+            <td>{{ pintura.precio  }}</td>
+            <td>{{ pintura.stock }}</td>
+            <td>{{ pintura.fecha_agregado}}</td>
+            <td>
+              <a 
+                pButton 
+                pRipple
+                icon="pi pi-pencil"
+                severity="info"
+                class="mr-1"
+                [routerLink]="['/admin/dashboard/update-pintura/', pintura.id]">
+              </a>
+  
+              <button 
+                pButton 
+                pRipple
+                severity="danger"
+                icon="pi pi-eraser"
+                class="mr-1"
+                (click)="eliminar(pintura.id)">
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-card>
+  

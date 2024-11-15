@@ -1,0 +1,43 @@
+<p-card header="Crear Detalle de Carrito" [style]="{ width: '100%' }">
+    <div>
+      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+        
+        <div class="grid">
+          <!-- Dropdown for Cart -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
+              <p-dropdown [options]="cartOptions" formControlName="id_carrito" placeholder="Seleccionar Carrito" optionLabel="nombre" optionValue="id"
+                class="w-12 border-noround-left border-round-right border-1 border-gray-300 border-solid text-sm placeholder-gray-400" dropdownIcon="pi pi-chevron-down">
+              </p-dropdown>
+            </div>
+          </div>
+  
+          <!-- Dropdown for Product -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+              <p-dropdown [options]="products" formControlName="id_producto" placeholder="Seleccionar Producto" optionLabel="nombre" optionValue="id"
+                class="border-noround-left border-round-right border-1 border-gray-300 border-solid text-sm placeholder-gray-400" dropdownIcon="pi pi-chevron-down">
+              </p-dropdown>
+            </div>
+          </div>
+  
+          <!-- Quantity input -->
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-sort-numeric-down"></i></span>
+              <input pInputText formControlName="cantidad" type="number" placeholder="Cantidad" class="border-noround-left border-round-right border-1 border-gray-300 border-solid text-sm placeholder-gray-400" />
+            </div>
+          </div>
+        </div>
+  
+        <div class="flex justify-content-center flex-wrap">
+          <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4" type="submit"></button>
+          <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4" type="button" (click)="cancel()"></button>
+        </div>
+  
+      </form>
+    </div>
+  </p-card>
+  

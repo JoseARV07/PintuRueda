@@ -1,0 +1,9 @@
+<main class="flex flex-column min-h-80vh w-full">
+    @if(shouldShowHeader()){
+        <app-header />
+    }
+    <section class="min-h-80vh w-full">
+        <router-outlet />
+    </section>
+    @if(shouldShowHeader()){ <app-footer />}
+</main>

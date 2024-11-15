@@ -1,0 +1,55 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">
+                Registro de Carritos
+            </h3>
+            <div class="mt-2 mr-2">
+                <a 
+                  pButton 
+                  pRipple
+                  label="Crear Carrito" 
+                  icon="pi pi-cart-plus"
+                  class="bg-cyan-600"
+                  [routerLink]="['/admin/dashboard/cart-create']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    <p>
+        <p-table [value]="carritos">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID Cliente</th>
+                    <th>Estado</th>
+                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-cart>
+                <tr>
+                    <td>{{ cart.usuario.nombre }}</td>
+                    <td>{{ cart.estado }}</td>
+                    <td>
+                        <a 
+                            pButton 
+                            pRipple
+                            icon="pi pi-pencil"
+                            severity="info"
+                            class="mr-1"
+                            [routerLink]="['/admin/dashboard/cart-update/', cart.id]">
+                        </a>
+                        <button 
+                            pButton 
+                            pRipple
+                            severity="danger"
+                            icon="pi pi-eraser"
+                            class="mr-1"
+                            (click)="eliminar(cart.id)"
+                        >
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+</p-card>

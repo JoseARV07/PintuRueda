@@ -1,0 +1,26 @@
+<section class="flex flex-column p-2" id="piker">
+    <h2 class="text-3xl font-bold text-orange-500">
+        Personaliza tu pintura
+    </h2>
+    <form class="flex flex-wrap gap-5 align-items-center justify-content-center border-1 border-gray-200 shadow-1 border-round px-3 py-4">
+        <div class="flex flex-column gap-2">
+            <label for="color" class="text-sm">Elige Tu Color</label>
+            <input type="color" id="color" class="border-1 border-gray-200 border-round bg-white w-8rem h-2rem">
+        </div>
+        <div class="flex flex-column gap-2">
+            <label for="tono" class="text-sm">Elige Tu Tono</label>
+            <select id="tono" class="border-1 border-gray-200 border-round bg-white h-2rem">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="tipo1">tipo1</option>
+                <option value="tipo2">tipo2</option>
+                <option value="tipo3">tipo3</option>
+              </select>
+              
+        </div>
+        <div class="flex flex-column gap-2">
+          <label for="cantidad" class="text-sm">Cantidad (Galon)</label>
+            <input type="number" min="1" id="cantidad" class="border-1 border-gray-200 border-round bg-white w-8rem h-2rem">
+        </div>
+        <button class="border-none bg-orange-500 hover:bg-orange-700 text-white font-bold p-3 border-round">Agregar Pintura Personalizada al Carrito</button>
+    </form>
+</section>

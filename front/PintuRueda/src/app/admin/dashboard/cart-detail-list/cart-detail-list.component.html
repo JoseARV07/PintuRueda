@@ -1,0 +1,59 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">
+                Detalles del Carrito
+            </h3>
+            <div class="mt-2 mr-2">
+                <a 
+                  pButton 
+                  pRipple
+                  label="Crear Detalle" 
+                  icon="pi pi-cart-plus"
+                  class="bg-cyan-600"
+                  [routerLink]="['/admin/dashboard/cart-detail-create']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    <p>
+        <p-table [value]="cartDetails">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>carrito</th>
+                    <th>ID Producto</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-cartDetail>
+                <tr>
+                    <td>{{ cartDetail.carrito.id }}</td>
+                    <td>{{ cartDetail.producto.nombre }}</td>
+                    <td>{{ cartDetail.cantidad }}</td>
+                    <td>{{ cartDetail.subtotal }}</td>
+                    <td>
+                        <a 
+                            pButton 
+                            pRipple
+                            icon="pi pi-pencil"
+                            severity="info"
+                            class="mr-1"
+                            [routerLink]="['/admin/dashboard/cart-detail-update/', cartDetail.id]">
+                        </a>
+                        <button 
+                            pButton 
+                            pRipple
+                            severity="danger"
+                            icon="pi pi-eraser"
+                            class="mr-1"
+                            (click)="eliminar(cartDetail.id)"
+                        >
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+</p-card>

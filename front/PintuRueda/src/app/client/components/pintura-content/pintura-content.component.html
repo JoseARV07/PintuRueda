@@ -1,0 +1,8 @@
+<section class="flex flex-column p-2" id="pinturas">
+    <h2 class="text-3xl font-bold text-orange-500">Nuestras Pinturas</h2>
+<div class="flex w-full flex-wrap gap-2 justify-content-center">
+    @for (pintura of pinturas; track pintura.id) {
+        <app-card [producto]="pintura"/>
+    }
+</div>
+</section>

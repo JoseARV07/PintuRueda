@@ -1,0 +1,61 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap">
+        <h3 class="ml-4">Registro de Herramientas</h3>
+        <div class="mt-2 mr-2">
+          <a 
+            pButton 
+            pRipple
+            label="Crear Herramienta" 
+            icon="pi pi-wrench"
+            class="bg-cyan-600"
+            [routerLink]="['/admin/dashboard/create-herramienta']">
+          </a>
+        </div>
+      </div>
+    </ng-template>
+    <p>
+      <p-table [value]="herramientas">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>imagen</th>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Fecha Agregado</th>
+            <th class="flex justify-content-center flex-wrap">Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-herramienta>
+          <tr>
+            <td><div class="flex justify-content-center w-4rem border-circle overflow-hidden"><img [src]="herramienta.imagen" class="w-4rem"></div></td>
+            <td>{{ herramienta.nombre }}</td>
+            <td>{{ herramienta.categoria }}</td>
+            <td>{{ herramienta.precio }}</td>
+            <td>{{ herramienta.stock }}</td>
+            <td>{{ herramienta.fecha_agregado }}</td>
+            <td>
+              <a 
+                pButton 
+                pRipple
+                icon="pi pi-pencil"
+                severity="info"
+                class="mr-1"
+                [routerLink]="['/admin/dashboard/update-herramienta/', herramienta.id]">
+              </a>
+              <button 
+                pButton 
+                pRipple
+                severity="danger"
+                icon="pi pi-eraser"
+                class="mr-1"
+                (click)="eliminar(herramienta.id)">
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-card>
+  

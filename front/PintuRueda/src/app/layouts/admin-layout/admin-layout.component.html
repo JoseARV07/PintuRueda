@@ -1,0 +1,24 @@
+@if(shouldShowHeader()){
+<main>
+    <header>
+        <app-header></app-header>
+    </header>
+
+    <aside>
+        <app-aside></app-aside>
+    </aside>
+
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+
+
+    <footer>
+        <app-footer></app-footer>
+    </footer>
+
+</main>
+
+}@else{
+    <router-outlet></router-outlet>
+}

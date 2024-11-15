@@ -1,0 +1,76 @@
+<p-card header="Actualizar Pintura" [style]="{ width: '100%' }">
+  <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+
+    <div class="grid">
+      <div class="col-12 sm:col-6">
+        <div class="p-inputgroup mb-1">
+          <span class="p-inputgroup-addon"><i class="pi pi-palette"></i></span>
+          <input class="w-12 border-solid border-1 border-gray-300" type="text" pInputText formControlName="nombre"
+            placeholder="Nombre" title="Nombre">
+        </div>
+      </div>
+
+      <div class="col-12 sm:col-6">
+        <div class="p-inputgroup mb-1">
+          <span class="p-inputgroup-addon"><i class="pi pi-list"></i></span>
+          <input class="w-12 border-solid border-1 border-gray-300" type="text" pInputText formControlName="categoria"
+            placeholder="Categoria" title="Categoria">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-12 sm:col-6">
+        <div class="p-inputgroup mb-1">
+          <span class="p-inputgroup-addon"><i class="pi pi-dollar"></i></span>
+          <input class="w-12 border-solid border-1 border-gray-300" type="number" pInputText formControlName="precio"
+            placeholder="Precio" title="Precio">
+        </div>
+      </div>
+
+      <div class="col-12 sm:col-6">
+        <div class="p-inputgroup mb-1">
+          <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+          <input class="w-12 border-solid border-1 border-gray-300" type="number" pInputText formControlName="stock"
+            placeholder="Stock" title="Stock">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-12 sm:col-6">
+        <!-- Campo para el código -->
+        <div class="p-inputgroup mb-1">
+          <span class="p-inputgroup-addon"><i class="pi pi-barcode"></i></span>
+          <input class="w-12 border-solid border-1 border-gray-300" type="text" pInputText formControlName="codigo"
+            placeholder="Código" title="Código">
+        </div>
+      </div>
+
+      <div class="col-12 sm:col-6">
+        <p-fileUpload name="image" (onSelect)="onImageUpload($event)" [auto]="true" [maxFileSize]="10000000"
+          accept="image/*" mode="basic">
+        </p-fileUpload>
+      </div>
+    </div>
+
+    <div class="p-inputgroup mb-1">
+      <span class="p-inputgroup-addon"><i class="pi pi-align-left"></i></span>
+      <textarea pInputTextarea formControlName="descripcion" placeholder="Descripción" rows="3"
+        class="w-12 border-solid border-1 border-gray-300" [autoResize]="true"></textarea>
+    </div>
+
+    <div class="flex justify-content-center flex-wrap">
+      <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4" type="submit"></button>
+      <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4" type="button"
+        (click)="cancel()"></button>
+    </div>
+
+  </form>
+
+  <!-- Image Preview -->
+  <div *ngIf="imageUrl" class="text-center mt-3">
+    <h5>Vista previa de la imagen:</h5>
+    <img [src]="imageUrl" alt="Imagen Previa" class="max-w-12rem max-h-34 object-contain mt-2" />
+  </div>
+</p-card>

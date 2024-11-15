@@ -1,0 +1,33 @@
+<p-card header="Actualizar Carrito" [style]="{ width: '100%' }">
+    <div>
+      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+  
+        <div class="grid">
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+              <p-dropdown [options]="users" formControlName="id_user" placeholder="Seleccionar Usuario" optionLabel="nombre" optionValue="id"
+                class="w-full border-noround-left border-round-right border-1 border-gray-300 border-solid text-sm placeholder-gray-400" dropdownIcon="pi pi-chevron-down">
+              </p-dropdown>
+            </div>
+          </div>
+  
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-check-circle"></i></span>
+              <p-dropdown [options]="estadoOptions" formControlName="estado" placeholder="Seleccionar Estado" optionLabel="label" optionValue="value"
+                class="w-full border-noround-left border-round-right border-1 border-gray-300 border-solid text-sm placeholder-gray-400" dropdownIcon="pi pi-chevron-down">
+              </p-dropdown>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flex justify-content-center flex-wrap">
+          <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4" type="submit"></button>
+          <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4" type="button" (click)="cancel()"></button>
+        </div>
+  
+      </form>
+    </div>
+  </p-card>
+  
